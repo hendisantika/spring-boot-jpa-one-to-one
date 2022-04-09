@@ -5,6 +5,7 @@ import com.hendisantika.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -35,14 +36,16 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee getEmployee(Long empId) {
         Optional<Employee> optionalEmp = employeeRepository.findById(empId);
-        if (optionalEmp.isPresent()) {
-            return optionalEmp.get();
-        }
-        return null;
+        return optionalEmp.orElse(null);
     }
 
     @Override
     public void deleteEmployee(Long empId) {
         employeeRepository.deleteById(empId);
+    }
+
+    @Override
+    public List<Employee> getAllEmployee() {
+        return employeeRepository.findAll();
     }
 }
