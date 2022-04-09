@@ -9,3 +9,19 @@
 5. Import POSTMAN Collection
 
 ### Image Screen shot
+
+Add New Employee
+
+![Add New Employee](img/add.png "Add New Employee")
+
+List All Employee
+
+![List All Employee](img/list.png "List All Employee")
+
+Get Employee By ID
+
+![Get Employee By ID](img/get.png "Get Employee By ID")
+
+Update Employee By ID
+
+![Update Employee By ID](img/update.png "Update Employee By ID")
