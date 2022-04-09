@@ -65,3 +65,12 @@ curl --location --request GET 'http://localhost:8080/employees/2' \
     }
 }'
 ```
+
+Delete Employee By ID
+
+![Delete Employee By ID](img/delete.png "Delete Employee By ID")
+
+```shell
+curl --location --request DELETE 'http://localhost:8080/employees/3' \
+--data-raw ''
+```
