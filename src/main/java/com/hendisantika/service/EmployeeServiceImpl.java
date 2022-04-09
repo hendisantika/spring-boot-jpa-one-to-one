@@ -5,6 +5,8 @@ import com.hendisantika.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : spring-boot-jpa-one-to-one
@@ -28,5 +30,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee updateEmployee(Employee emp) {
         return employeeRepository.save(emp);
+    }
+
+    @Override
+    public Employee getEmployee(Long empId) {
+        Optional<Employee> optionalEmp = employeeRepository.findById(empId);
+        if (optionalEmp.isPresent()) {
+            return optionalEmp.get();
+        }
+        return null;
     }
 }
