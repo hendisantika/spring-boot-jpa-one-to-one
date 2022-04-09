@@ -5,6 +5,8 @@ import com.hendisantika.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,4 +37,9 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.updateEmployee(emp), HttpStatus.CREATED);
     }
 
+    @DeleteMapping(produces = "application/json", consumes = "text/plain", path = "/employee/{empId}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable(value = "empId") Long empId) {
+        employeeService.deleteEmployee(empId);
+        return new ResponseEntity<>("Employee with EmployeeId : " + empId + " deleted successfully", HttpStatus.OK);
+    }
 }
