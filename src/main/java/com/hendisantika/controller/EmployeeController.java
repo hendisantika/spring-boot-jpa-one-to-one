@@ -30,23 +30,23 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @PostMapping(consumes = "application/json", produces = "application/json", path = "/employee")
+    @PostMapping(consumes = "application/json", produces = "application/json", path = "/employees")
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee emp) {
         return new ResponseEntity<>(employeeService.createEmployee(emp), HttpStatus.CREATED);
     }
 
-    @PutMapping(consumes = "application/json", produces = "application/json", path = "/employee")
+    @PutMapping(consumes = "application/json", produces = "application/json", path = "/employees")
     public ResponseEntity<Employee> updateEmployee(@RequestBody Employee emp) {
         return new ResponseEntity<>(employeeService.updateEmployee(emp), HttpStatus.CREATED);
     }
 
-    @DeleteMapping(produces = "application/json", consumes = "text/plain", path = "/employee/{empId}")
+    @DeleteMapping(produces = "application/json", consumes = "text/plain", path = "/employees/{empId}")
     public ResponseEntity<String> deleteEmployee(@PathVariable(value = "empId") Long empId) {
         employeeService.deleteEmployee(empId);
         return new ResponseEntity<>("Employee with EmployeeId : " + empId + " deleted successfully", HttpStatus.OK);
     }
 
-    @GetMapping(path = "/employee/{empId}", produces = "application/json")
+    @GetMapping(path = "/employees/{empId}", produces = "application/json")
     public ResponseEntity<Employee> getEmployee(@PathVariable(value = "empId") Long empId) {
         return new ResponseEntity<>(employeeService.getEmployee(empId), HttpStatus.OK);
     }
