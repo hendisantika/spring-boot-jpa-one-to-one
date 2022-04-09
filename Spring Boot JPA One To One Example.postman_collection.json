@@ -1,0 +1,130 @@
+{
+  "info": {
+    "_postman_id": "c8396122-7089-49cc-a673-0f4589b53bcc",
+    "name": "Spring Boot JPA One To One Example",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List All Employees",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/employees",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add New Employee",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"employeeName\":\"Uzumaki Naruto\",\n    \"employeeCode\": \"A001\",\n    \"designation\": \"Software Developer\",\n    \"address\": {\n        \"doorNumber\": \"212\",\n        \"street\":\"New Street\",\n        \"city\": \"Bandung\"\n\n    }\n\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/employees",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Employees By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/employees/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "1"
+          ]
+        },
+        "description": "Get Employees By ID"
+      },
+      "response": []
+    },
+    {
+      "name": "Update employee",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"employeeName\": \"Uchiha Madara\",\n    \"employeeCode\": \"A002\",\n    \"designation\": \"Software Developer\",\n    \"address\": {\n        \"doorNumber\": \"212\",\n        \"street\": \"New Street\",\n        \"city\": \"Bandung\"\n    }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/employees/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete employee by ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/employees/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "employees",
+            "3"
+          ]
+        },
+        "description": "Delete employee by ID"
+      },
+      "response": []
+    }
+  ]
+}
