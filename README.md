@@ -7,3 +7,5 @@
 3. Replace PostgreSQL credentials with your own
 4. Run the application: `mvn clean spring-boot:run`
 5. Import POSTMAN Collection
+
+### Image Screen shot
