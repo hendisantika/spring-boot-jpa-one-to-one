@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : spring-boot-jpa-one-to-one
@@ -47,5 +49,10 @@ public class EmployeeController {
     @GetMapping(path = "/employee/{empId}", produces = "application/json")
     public ResponseEntity<Employee> getEmployee(@PathVariable(value = "empId") Long empId) {
         return new ResponseEntity<>(employeeService.getEmployee(empId), HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/employees", produces = "application/json")
+    public ResponseEntity<List<Employee>> getAllEmployees() {
+        return new ResponseEntity<>(employeeService.getAllEmployee(), HttpStatus.OK);
     }
 }
