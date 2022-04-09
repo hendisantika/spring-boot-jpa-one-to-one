@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -41,5 +42,10 @@ public class EmployeeController {
     public ResponseEntity<String> deleteEmployee(@PathVariable(value = "empId") Long empId) {
         employeeService.deleteEmployee(empId);
         return new ResponseEntity<>("Employee with EmployeeId : " + empId + " deleted successfully", HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/employee/{empId}", produces = "application/json")
+    public ResponseEntity<Employee> getEmployee(@PathVariable(value = "empId") Long empId) {
+        return new ResponseEntity<>(employeeService.getEmployee(empId), HttpStatus.OK);
     }
 }
